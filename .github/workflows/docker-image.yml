@@ -1,8 +1,8 @@
 name: Docker Image CI
 
 on:
-  workflow_dispatch:  # 手动触发
-  create:             # 自动触发：新分支或标签
+  workflow_dispatch:
+  create:
 
 jobs:
   build-push:
@@ -42,7 +42,9 @@ jobs:
         echo "Building and pushing image with tag: $IMAGE_TAG"
 
         docker buildx build \
-          --platform linux/amd64,linux/arm64 \
+          --platform linux/386,linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7,linux/ppc64le,linux/s390x \
+          --cache-from type=gha \
+          --cache-to type=gha,mode=max \
           -t ${{ secrets.DOCKER_USERNAME }}/wxchat:$IMAGE_TAG \
           --push .
 
