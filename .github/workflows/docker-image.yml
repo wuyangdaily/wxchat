@@ -28,7 +28,7 @@ jobs:
 
     # 4️⃣ Buildx
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+      uses: docker/setup-buildx-action@v4
 
     # 5️⃣ 构建并推送
     - name: Build and Push the Docker image
