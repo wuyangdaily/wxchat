@@ -1,4 +1,4 @@
-FROM nginx:1.31.6-alpine
+FROM nginx:1.31.8-alpine
 
 ENV TZ=Asia/Shanghai
 
